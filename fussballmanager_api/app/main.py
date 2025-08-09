@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import health, auth
+from app.routes import health, auth, members
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import Base, engine
 
@@ -23,3 +23,4 @@ app.add_middleware(
 # Routers
 app.include_router(health.router)
 app.include_router(auth.router)
+app.include_router(members.router)
