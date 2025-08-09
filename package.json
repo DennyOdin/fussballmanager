@@ -1,0 +1,13 @@
+{
+  "name": "fussballmanager",
+  "private": true,
+  "workspaces": ["web"],
+  "scripts": {
+    "web:dev": "npm run dev -w web",
+    "api:dev": ".\\venv\\Scripts\\python.exe -m uvicorn app.main:app --reload --app-dir api --reload-dir api",
+    "dev": "concurrently -n web,api -c auto -k \"npm run web:dev\" \"npm run api:dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
